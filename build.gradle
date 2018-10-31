@@ -17,6 +17,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile "com.mojang:authlib:1.5.25"
     implementation 'com.github.TheAltening:API-Java:-SNAPSHOT'
 }
