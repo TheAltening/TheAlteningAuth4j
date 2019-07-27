@@ -2,9 +2,9 @@
 <p>
 Allows you to switch the current alt service between Mojang & TheAltening
 </p>
+
 <h3>Implementation:</h3>
 <p>Gradle Groovy DSL:</p>
-[![](https://jitpack.io/v/TheAltening/API-Java-AuthLib.svg)](https://jitpack.io/#TheAltening/API-Java-AuthLib/2.0-SNAPSHOT)
 
 ```
 repositories {
