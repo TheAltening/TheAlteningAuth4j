@@ -18,8 +18,6 @@
 
 package com.thealtening.authlibapi.reflection;
 
-import com.thealtening.authlibapi.utils.JavaUtils;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 

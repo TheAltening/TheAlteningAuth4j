@@ -19,7 +19,6 @@
 package com.thealtening.authlibapi;
 
 import com.thealtening.authlibapi.reflection.ReflectionClass;
-import com.thealtening.authlibapi.utils.StringUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -63,12 +62,12 @@ class ServiceSwitcher {
 
     private String getAuthServerLinkWithServiceType(TheAlteningAuthLibAPI.EnumAltService service) {
         final String prefix = service == TheAlteningAuthLibAPI.EnumAltService.THEALTENING ? "http" : "https";
-        return prefix + "://authserver." + StringUtils.capitalize(service.name()) + ".com/";
+        return prefix + "://authserver." + service.name().toLowerCase() + ".com/";
     }
 
     private String getSessionServerLinkWithServiceType(TheAlteningAuthLibAPI.EnumAltService service) {
         final String prefix = service == TheAlteningAuthLibAPI.EnumAltService.THEALTENING ? "http" : "https";
-        return prefix + "://sessionserver." + StringUtils.capitalize(service.name()) + ".com/";
+        return prefix + "://sessionserver." + service.name().toLowerCase() + ".com/";
     }
 
     private URL makeURLFromString(String url) throws MalformedURLException {
