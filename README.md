@@ -1,7 +1,7 @@
 # The Altening Auth API
 
 [![Java 8+][java-badge]](https://java.oracle.com/)
-[![Maven Central][maven-badge]](https://search.maven.org/artifact/pw.stamina/pubsub4k)
+[![Maven Central][maven-badge]](https://search.maven.org/artifact/nothing lmao)
 
 [java-badge]: https://img.shields.io/badge/Java-8%2B-informational.svg
 [maven-badge]: https://img.shields.io/maven-central/v/pw.stamina/pubsub4k.svg
