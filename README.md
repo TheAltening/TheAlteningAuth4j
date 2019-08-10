@@ -20,8 +20,7 @@ import com.thealtening.auth.TheAlteningAuthentication
 TheAlteningAuthentication mojang = TheAlteningAuthentication.mojang();
 TheAlteningAuthentication theAltening = TheAlteningAuthentication.theAltening();
 ```
-2. Switch to another service
-If you want to switch to another service, use the ``updateService`` method from your auth instance.
+2. Switching to another service, use the ``updateService`` method from your auth instance.
 
 ```java
 theAlteningAuth.updateService(AlteningServiceType.MOJANG);
