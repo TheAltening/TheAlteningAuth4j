@@ -7,6 +7,8 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 
 public final class SSLController {
+    private static final TrustManager[] ALL_TRUSTING_TRUST_MANAGER;
+    private static final HostnameVerifier ALTENING_HOSTING_VERIFIER;
 
     private final SSLSocketFactory allTrustingFactory;
     private final SSLSocketFactory originalFactory;
@@ -32,7 +34,7 @@ public final class SSLController {
     }
 
     public void disableCertificateValidation() {
-        updateCertificateValidation(this.allTrustingFactory, ALL_TRUSTING_HOSTNAME_VERIFIER);
+        updateCertificateValidation(this.allTrustingFactory, ALTENING_HOSTING_VERIFIER);
     }
 
     private void updateCertificateValidation(SSLSocketFactory factory, HostnameVerifier hostnameVerifier) {
@@ -40,19 +42,18 @@ public final class SSLController {
         HttpsURLConnection.setDefaultHostnameVerifier(hostnameVerifier);
     }
 
-    private static final TrustManager[] ALL_TRUSTING_TRUST_MANAGER = new TrustManager[] {
-            new X509TrustManager() {
-                public X509Certificate[] getAcceptedIssuers() {
-                    return null;
+    static {
+        ALL_TRUSTING_TRUST_MANAGER = new TrustManager[] {
+                new X509TrustManager() {
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) {}
                 }
-                public void checkClientTrusted(X509Certificate[] certs, String authType) {}
-                public void checkServerTrusted(X509Certificate[] certs, String authType) {}
-            }
-    };
+        };
 
-    private static final HostnameVerifier ALL_TRUSTING_HOSTNAME_VERIFIER  = new HostnameVerifier() {
-        public boolean verify(String hostname, SSLSession session) {
-            return hostname.equals("authserver.thealtening.com") || hostname.equals("sessionserver.thealtening.com");
-        }
-    };
+        ALTENING_HOSTING_VERIFIER = (hostname, session) ->
+                hostname.equals("authserver.thealtening.com") || hostname.equals("sessionserver.thealtening.com");
+    }
 }

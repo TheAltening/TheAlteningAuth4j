@@ -24,6 +24,10 @@ public enum AlteningServiceType {
     }
 
     public String getSessionServer() {
-        return sessionServer;
+        return this.sessionServer;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

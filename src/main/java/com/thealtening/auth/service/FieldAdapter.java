@@ -14,6 +14,7 @@ import java.util.Optional;
 public final class FieldAdapter {
 
     private final HashMap<String, MethodHandle> fields = new HashMap<>();
+    private static final MethodHandles.Lookup LOOKUP;
     private static Field MODIFIERS;
 
     public FieldAdapter(String parent) {
@@ -27,7 +28,7 @@ public final class FieldAdapter {
                     modifiers.setInt(field, accessFlags & ~Modifier.FINAL);
                 }
 
-                MethodHandle handler = MethodHandles.lookup().unreflectSetter(field);
+                MethodHandle handler = LOOKUP.unreflectSetter(field);
                 handler = handler.asType(handler.type().generic().changeReturnType(void.class));
                 fields.put(field.getName(), handler);
             }
@@ -55,5 +56,16 @@ public final class FieldAdapter {
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
+
+        MethodHandles.Lookup lookupObject;
+        try {
+            Field lookupImplField = MethodHandles.Lookup.class.getDeclaredField("IMPL_LOOKUP");
+            lookupImplField.setAccessible(true);
+            lookupObject = (MethodHandles.Lookup) lookupImplField.get(null);
+        } catch (ReflectiveOperationException e) {
+            lookupObject = MethodHandles.lookup();
+        }
+
+        LOOKUP = lookupObject;
     }
 }

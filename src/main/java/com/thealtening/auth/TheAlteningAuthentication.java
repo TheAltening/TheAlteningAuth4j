@@ -54,6 +54,7 @@ public final class TheAlteningAuthentication {
             case MOJANG:
                 this.sslController.enableCertificateValidation();
                 break;
+
             case THEALTENING:
                 this.sslController.disableCertificateValidation();
                 break;
