@@ -37,11 +37,11 @@ import java.security.cert.X509Certificate;
 public final class TheAlteningAuthentication {
 
     private final ServiceSwitcher serviceSwitcher = new ServiceSwitcher();
+    private final SSLController sslController = new SSLController();
     private static TheAlteningAuthentication instance;
     private AlteningServiceType service;
 
     private TheAlteningAuthentication(AlteningServiceType service) {
-        this.disableCertificateValidation();
         this.updateService(service);
     }
 
@@ -50,38 +50,16 @@ public final class TheAlteningAuthentication {
             return;
         }
 
-        this.service = this.serviceSwitcher.switchToService(service);
-    }
-
-    private void disableCertificateValidation() {
-        TrustManager[] trustManager = new TrustManager[]{
-                new X509TrustManager() {
-                    @Override
-                    public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
-                    }
-
-                    @Override
-                    public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
-                    }
-
-                    @Override
-                    public X509Certificate[] getAcceptedIssuers() {
-                        return null;
-                    }
-                }
-        };
-
-        SSLContext sc = null;
-        try {
-            sc = SSLContext.getInstance("SSL");
-            sc.init(null, trustManager, new SecureRandom());
-
-            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-        } catch (NoSuchAlgorithmException | KeyManagementException e) {
-            e.printStackTrace();
+        switch (service) {
+            case MOJANG:
+                this.sslController.enableCertificateValidation();
+                break;
+            case THEALTENING:
+                this.sslController.disableCertificateValidation();
+                break;
         }
 
-        HttpsURLConnection.setDefaultHostnameVerifier((hostname, sslSession) -> hostname.equals("authserver.thealtening.com") || hostname.equals("sessionserver.thealtening.com"));
+        this.service = this.serviceSwitcher.switchToService(service);
     }
 
     public AlteningServiceType getService() {
