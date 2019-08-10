@@ -1,78 +1,34 @@
-# The Altening Java API for AuthLib
+# The Altening Auth API
 
+[![Java 8+][java-badge]](https://java.oracle.com/)
+[![Maven Central][maven-badge]](https://search.maven.org/artifact/pw.stamina/pubsub4k)
 
-<h3>Implementation.</h3>
-<p>Gradle Groovy DSL:</p>
+[java-badge]: https://img.shields.io/badge/Java-8%2B-informational.svg
+[maven-badge]: https://img.shields.io/maven-central/v/pw.stamina/pubsub4k.svg
 
+A fork of The Altening Auth API 2.0 made by [Trol](https://github.com/Trol1337). The objective of this fork is to improve the performance and readability for its users.
+
+## Prerequisites
+ * Use JDK 1.8+
+ 
+## Usage
+
+1. Create a new `TheAlteningAuthentication` instance depending on the service wanted:
+```java
+import com.thealtening.auth.TheAlteningAuthentication
+
+TheAlteningAuthentication mojang = TheAlteningAuthentication.mojang();
+TheAlteningAuthentication theAltening = TheAlteningAuthentication.theAltening();
 ```
-repositories {
+2. Switch to another service
+If you want to switch to another service, use the ``updateService`` method from your auth instance.
 
-    maven{ url = 'https://jitpack.io'}
-}
-dependencies {
-
-    implementation 'com.github.TheAltening:API-Java:-SNAPSHOT'
-    implementation 'com.github.TheAltening:API-Java-AuthLib:-SNAPSHOT'
-}
-```
-
-<p>Gradle Kotlin DSL: </p>
-
-```
-repositories {
-    maven(url = "https://jitpack.io")
-}
-
-dependencies {
-    implementation("com.github.TheAltening:API-Java:-SNAPSHOT")
-    implementation("com.github.TheAltening:API-Java-AuthLib:-SNAPSHOT")
-}
-```
-
-<p>Maven: </p>
-
-```
-<repositories>
-    <repository>
-        <url>https://jitpack.io</url>
-        <id>jitpack</id>
-        <name>Jitpack Library Hoster</name>
-    </repository>
-</repositories>
-
-<dependencies>
-    <dependency>
-        <groupId>com.github.TheAltening</groupId>
-        <artifactId>API-Java</artifactId>
-        <version>-SNAPSHOT</version>
-    </dependency>
-    
-    <dependency>
-        <groupId>com.github.TheAltening</groupId>
-        <artifactId>API-Java-AuthLib</artifactId>
-        <version>-SNAPSHOT</version>
-    </dependency>
-</dependencies>
+```java
+theAlteningAuth.updateService(AlteningServiceType.MOJANG);
+theAlteningAuth.updateService(AlteningServiceType.THEALTENING);
 ```
 
-<p>Usage of the API:</p>
+Note: if the given service type is ``null`` or the same as the current, no change will be made.
 
-`
-SSLVerification sslVerification = new SSLVerification();
-`
-
-`SSLVerification#verify();`
-This verifies all of the SSL, and needs for the TheAltening servers to work.
-
-
-`AltService altService = new AltService();`<br>
-This is the main alt service switcher. <br>
-Needs to be in your main class, never re-initialized.
-
-`AltService#switchService(EnumAltService);`
-<br>
-Switches the service to the available services (`EnumAltService.MOJANG`, `EnumAltService.THEALTENING`)
-
-`AltService#currentService();`
-<br>
-Returns the current service.
+## License
+The fork as the original repository requires it is under [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/).
