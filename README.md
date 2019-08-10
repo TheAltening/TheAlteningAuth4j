@@ -6,7 +6,7 @@
 [java-badge]: https://img.shields.io/badge/Java-8%2B-informational.svg
 [maven-badge]: https://img.shields.io/maven-central/v/pw.stamina/pubsub4k.svg
 
-A fork of The Altening Auth API 2.0 made by [Trol](https://github.com/Trol1337). The objective of this fork is to improve the performance and readability for its users.
+A fork of The Altening Auth API 2.0 originally made by [Trol](https://github.com/Trol1337). The objective of this fork is to improve the performance and readability for its users.
 
 ## Prerequisites
  * Use JDK 1.8+
