@@ -44,6 +44,7 @@ public final class TheAlteningAuthentication {
         this.service = service;
 
         this.disableCertificateValidation();
+        this.updateService(service);
     }
 
     public void updateService(AlteningServiceType service) {
