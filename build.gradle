@@ -2,12 +2,14 @@ plugins {
     id 'io.codearte.nexus-staging' version '0.21.0'
 }
 
+apply plugin: 'java'
+sourceCompatibility = targetCompatibility = 1.8
+
 group = "com.thealtening.auth"
 archivesBaseName = "auth"
 version = "3.0.1"
 
-apply plugin: 'java'
-sourceCompatibility = targetCompatability = 1.8
+
 
 repositories {
     mavenCentral()
