@@ -1,21 +1,92 @@
 plugins {
-    id 'java'
+    id 'io.codearte.nexus-staging' version '0.21.0'
 }
 
-group 'com.thealtening.api'
-version '1.0-SNAPSHOT'
+group = "com.thealtening.auth"
+archivesBaseName = "auth"
+version = "3.0.1"
 
-sourceCompatibility = 1.8
+apply plugin: 'java'
+sourceCompatibility = targetCompatability = 1.8
 
 repositories {
     mavenCentral()
-    maven {
-        url = "https://libraries.minecraft.net"
-    }
-    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation 'com.github.TheAltening:API-Java:-SNAPSHOT'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.code.gson:gson:2.8.5'
+}
+
+// Signing
+apply plugin: 'signing'
+signing {
+    sign configurations.archives
+}
+
+// Deploying
+apply plugin: 'maven'
+
+// Add Javadoc JAR and sources JAR to artifact
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+// Build, sign, and upload
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            // Sign POM
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            // Destination
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+
+            // Add required metadata to POM
+            pom.project {
+                name 'TheAlteningAuth4j'
+                packaging 'jar'
+                description 'Java Wrapper for TheAltening Auth API'
+                url 'https://github.com/TheAltening/TheAlteningAuth4j'
+
+                scm {
+                    connection 'scm:git:git://github.com/TheAltening/TheAlteningAuth4j.git'
+                        developerConnection 'scm:git:ssh://github.com/TheAltening/TheAlteningAuth4j.git'
+                        url 'http://github.com/TheAltening/TheAlteningAuth4j/tree/master'
+                }
+
+                licenses {
+                    license {
+                        name 'GNU Lesser General Public License version 3'
+                        url 'https://www.gnu.org/licenses/lgpl-3.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'Trol1337'
+                        name 'Karolis Rokas'
+                        email 'trol1337gaming@gmail.com'
+                        organization 'TheAltening'
+                        organizationUrl 'https://thealtening.com'
+                    }
+                }
+            }
+        }
+    }
 }

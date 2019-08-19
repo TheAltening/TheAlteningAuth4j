@@ -1,12 +1,34 @@
 # The Altening Auth API
 
 [![Java 8+][java-badge]](https://java.oracle.com/)
-[![Maven Central][maven-badge]](https://search.maven.org/artifact/nothing)
+[![Maven Central][maven-badge]](https://search.maven.org/artifact/com.thealtening.auth/auth)
 
 [java-badge]: https://img.shields.io/badge/Java-8%2B-informational.svg
-[maven-badge]: https://img.shields.io/maven-central/v/pw.stamina/pubsub4k.svg
+[maven-badge]: https://img.shields.io/maven-central/v/com.thealtening.auth/auth.svg
+[![GitHub license](https://img.shields.io/github/license/TheAltening/TheAlteningAuth4j)](https://github.com/TheAltening/TheAlteningAuth4j/blob/4.0/LICENSE)
 
-A fork of The Altening Auth API 2.0 originally made by [Trol](https://github.com/Trol1337). The objective of this fork is to improve the performance and readability for its users.
+TheAltening Auth API made by [Vladymyr](https://github.com/Vladymyr) now branded under the official repo
+
+## Gradle
+```groovy
+repositories {
+	mavenCentral()
+}
+dependencies {
+	implementation 'com.thealtening.auth:auth:@BADGE-VERSION@'
+}
+```
+
+## Maven
+```xml
+<dependencies>
+	<dependency>
+		<groupId>com.thealtening.auth</groupId>
+		<artifactId>auth</artifactId>
+		<version>@BADGE-VERSION@</version>
+	</dependency>
+</dependencies>
+```
 
 ## Prerequisites
  * Use JDK 1.8+
@@ -28,6 +50,3 @@ theAlteningAuth.updateService(AlteningServiceType.THEALTENING);
 ```
 
 Note: if the given service type is ``null`` or the same as the current, no change will be made.
-
-## License
-The fork as the original repository requires it is under [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/).
