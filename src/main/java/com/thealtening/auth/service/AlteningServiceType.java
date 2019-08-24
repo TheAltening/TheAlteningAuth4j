@@ -23,17 +23,15 @@ package com.thealtening.auth.service;
  */
 public enum AlteningServiceType {
 
-    MOJANG("mojang"),
-    THEALTENING("thealtening");
+    MOJANG("https://authserver.mojang.com/", "https://sessionserver.mojang.com/"),
+    THEALTENING("http://authserver.thealtening.com/", "http://sessionserver.thealtening.com/");
 
     private final String authServer;
     private final String sessionServer;
-    private final String type;
 
-    AlteningServiceType(String type) {
-        this.type = type;
-        this.authServer = "https://authserver." + type + ".com/";
-        this.sessionServer = "http://sessionserver." + type + ".com/";
+    AlteningServiceType(String authServer, String sessionServer) {
+        this.authServer = authServer;
+        this.sessionServer = sessionServer;
     }
 
     public String getAuthServer() {
@@ -41,10 +39,6 @@ public enum AlteningServiceType {
     }
 
     public String getSessionServer() {
-        return this.sessionServer;
-    }
-
-    public String getType() {
-        return this.type;
+        return sessionServer;
     }
 }
