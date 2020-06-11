@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="authlib" target="1.8" />
+      <module name="authlib.main" target="1.8" />
+      <module name="authlib.test" target="1.8" />
+      <module name="TheAltening4j" target="12" />
+      <module name="TheAltening4j.main" target="12" />
+      <module name="TheAltening4j.test" target="12" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

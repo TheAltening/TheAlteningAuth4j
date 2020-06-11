@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TheAlteningAuth4j.iml" filepath="$PROJECT_DIR$/.idea/modules/TheAlteningAuth4j.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/authlib.iml" filepath="$PROJECT_DIR$/.idea/modules/authlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/authlib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/authlib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/authlib.test.iml" filepath="$PROJECT_DIR$/.idea/modules/authlib.test.iml" />
     </modules>
   </component>
 </project>

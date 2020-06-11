@@ -9,6 +9,8 @@
 
 TheAltening Auth API made by [Vladymyr](https://github.com/Vladymyr) now branded under the official repo
 
+Please use the version `x.x.x-j9` if you are running Java 10 and above, otherwise just stick to `x.x.x` version.
+
 ## Gradle
 ```groovy
 repositories {
