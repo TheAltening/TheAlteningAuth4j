@@ -5,7 +5,7 @@
 
 [java-badge]: https://img.shields.io/badge/Java-8%2B-informational.svg
 [maven-badge]: https://img.shields.io/maven-central/v/com.thealtening.auth/auth.svg
-[![GitHub license](https://img.shields.io/github/license/TheAltening/TheAlteningAuth4j)](https://github.com/TheAltening/TheAlteningAuth4j/blob/4.0/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/TheAltening/TheAlteningAuth4j)](https://github.com/TheAltening/TheAlteningAuth4j/blob/3.0/LICENSE)
 
 TheAltening Auth API made by [Vladymyr](https://github.com/Vladymyr) now branded under the official repo
 
