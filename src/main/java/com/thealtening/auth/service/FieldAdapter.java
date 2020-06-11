@@ -19,6 +19,7 @@ package com.thealtening.auth.service;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
+import java.lang.invoke.VarHandle;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -32,27 +33,26 @@ public final class FieldAdapter {
 
     private final HashMap<String, MethodHandle> fields = new HashMap<>();
     private static final MethodHandles.Lookup LOOKUP;
-    private static Field MODIFIERS;
+    private static VarHandle MODIFIERS;
 
     public FieldAdapter(String parent) {
         try {
-            Class cls = Class.forName(parent);
-            Field modifiers = FieldAdapter.MODIFIERS;
+            var cls = Class.forName(parent);
+            var modifiers = FieldAdapter.MODIFIERS;
             for (Field field : cls.getDeclaredFields()) {
                 field.setAccessible(true);
-                int accessFlags = field.getModifiers();
+                var accessFlags = field.getModifiers();
                 if (Modifier.isFinal(accessFlags)) {
-                    modifiers.setInt(field, accessFlags & ~Modifier.FINAL);
+                    MODIFIERS.set(field, accessFlags & ~Modifier.FINAL);
                 }
-
-                MethodHandle handler = LOOKUP.unreflectSetter(field);
+                var handler = LOOKUP.unreflectSetter(field);
                 handler = handler.asType(handler.type().generic().changeReturnType(void.class));
                 fields.put(field.getName(), handler);
             }
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("Couldn't load/find the specified class");
         } catch (Exception e) {
-            throw new RuntimeException("Couldn't create a method handler for the field");
+            throw new RuntimeException("Couldn't create a method handler for the field", e);
         }
     }
 
@@ -68,15 +68,15 @@ public final class FieldAdapter {
 
     static {
         try {
-            MODIFIERS = Field.class.getDeclaredField("modifiers");
-            MODIFIERS.setAccessible(true);
-        } catch (NoSuchFieldException e) {
+            var lookup = MethodHandles.privateLookupIn(Field.class, MethodHandles.lookup());
+            MODIFIERS = lookup.findVarHandle(Field.class, "modifiers", int.class);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
             e.printStackTrace();
         }
 
         MethodHandles.Lookup lookupObject;
         try {
-            Field lookupImplField = MethodHandles.Lookup.class.getDeclaredField("IMPL_LOOKUP");
+            var lookupImplField = MethodHandles.Lookup.class.getDeclaredField("IMPL_LOOKUP");
             lookupImplField.setAccessible(true);
             lookupObject = (MethodHandles.Lookup) lookupImplField.get(null);
         } catch (ReflectiveOperationException e) {

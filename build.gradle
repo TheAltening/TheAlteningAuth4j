@@ -3,7 +3,7 @@ plugins {
 }
 
 apply plugin: 'java'
-sourceCompatibility = targetCompatibility = 1.8
+sourceCompatibility = targetCompatibility = 14
 
 group = "com.thealtening.auth"
 archivesBaseName = "auth"

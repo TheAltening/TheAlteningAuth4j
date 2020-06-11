@@ -133,3 +133,4 @@ gradle-app.setting
 *.ipr
 *.iws
 # End of https://www.gitignore.io/api/java,gradle,forgegradle
+gradle.properties

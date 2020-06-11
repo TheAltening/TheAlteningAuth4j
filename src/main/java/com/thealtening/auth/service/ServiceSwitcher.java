@@ -57,8 +57,8 @@ public final class ServiceSwitcher {
             userSession.updateFieldIfPresent("BASE_URL", sessionServer + "session/minecraft/");
             userSession.updateFieldIfPresent("JOIN_URL", new URL(sessionServer + "session/minecraft/join"));
             userSession.updateFieldIfPresent("CHECK_URL", new URL(sessionServer + "session/minecraft/hasJoined"));
-        } catch (Exception ignored) {
-            ignored.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return AlteningServiceType.MOJANG;
         }
 
