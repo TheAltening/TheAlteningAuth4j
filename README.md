@@ -9,6 +9,8 @@
 
 TheAltening Auth API made by [Vladymyr](https://github.com/Vladymyr) now branded under the official repo
 
+Please use the version `x.x.x-j9` if you are running Java 10 and above, otherwise just stick to `x.x.x` version.
+
 ## Gradle
 ```groovy
 repositories {
@@ -42,7 +44,7 @@ import com.thealtening.auth.TheAlteningAuthentication
 TheAlteningAuthentication mojang = TheAlteningAuthentication.mojang();
 TheAlteningAuthentication theAltening = TheAlteningAuthentication.theAltening();
 ```
-2. I case that you want to switch to another service, use the ``updateService`` method from your auth instance.
+2. Incase that you want to switch to another service, use the ``updateService`` method from your auth instance.
 
 ```java
 theAlteningAuth.updateService(AlteningServiceType.MOJANG);
