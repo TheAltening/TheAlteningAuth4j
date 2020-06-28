@@ -23,19 +23,25 @@ package com.thealtening.auth.service;
  */
 public enum AlteningServiceType {
 
-    MOJANG("https://authserver.mojang.com/", "https://sessionserver.mojang.com/"),
-    THEALTENING("http://authserver.thealtening.com/", "http://sessionserver.thealtening.com/");
+    MOJANG("https://authserver.mojang.com", "https://api.mojang.com", "https://sessionserver.mojang.com"),
+    THEALTENING("http://authserver.thealtening.com","http://api.thealtening.com" , "http://sessionserver.thealtening.com");
 
     private final String authServer;
     private final String sessionServer;
+    private final String accountsHost;
 
-    AlteningServiceType(String authServer, String sessionServer) {
+    AlteningServiceType(String authServer, final String accountsHost, String sessionServer) {
         this.authServer = authServer;
+        this.accountsHost = accountsHost;
         this.sessionServer = sessionServer;
     }
 
     public String getAuthServer() {
         return this.authServer;
+    }
+
+    public String getAccountsHost() {
+        return accountsHost;
     }
 
     public String getSessionServer() {

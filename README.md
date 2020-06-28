@@ -8,8 +8,12 @@
 [![GitHub license](https://img.shields.io/github/license/TheAltening/TheAlteningAuth4j)](https://github.com/TheAltening/TheAlteningAuth4j/blob/4.0/LICENSE)
 
 TheAltening Auth API made by [Vladymyr](https://github.com/Vladymyr) now branded under the official repo
+## IMPORTANT
+If you are running Minecraft 1.16 and above, use `x.x.x-1.16`. Java 10 and above is not currently supported.
 
-Please use the version `x.x.x-j9` if you are running Java 10 and above, otherwise just stick to `x.x.x` version.
+Use the version `x.x.x-j9` if you are running Java 10 and above, otherwise just stick to `x.x.x` version.
+
+[Minecraft 1.15 and below ^]
 
 ## Gradle
 ```groovy

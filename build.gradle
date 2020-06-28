@@ -7,17 +7,21 @@ sourceCompatibility = targetCompatibility = 1.8
 
 group = "com.thealtening.auth"
 archivesBaseName = "auth"
-version = "3.0.2"
+version = "3.0.2-1.16"
 
 
 
 repositories {
     mavenCentral()
+    maven {
+        url = 'https://libraries.minecraft.net'
+    }
 }
 
 dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.code.gson:gson:2.8.5'
+    compile 'com.mojang:authlib:1.6.25'
 }
 
 // Signing

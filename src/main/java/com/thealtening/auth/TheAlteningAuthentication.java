@@ -59,7 +59,7 @@ public final class TheAlteningAuthentication {
                 break;
         }
 
-        this.service = this.serviceSwitcher.switchToService(service);
+        this.service = this.serviceSwitcher.switchToService(service, this.service);
     }
 
     public AlteningServiceType getService() {

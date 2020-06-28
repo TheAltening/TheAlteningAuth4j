@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,7 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d46be2a-e546-4d52-9ff2-032ee230e0f2" name="Default Changelist" comment="Updated README.md and reflected build.gradle to j9 version." />
+    <list default="true" id="9d46be2a-e546-4d52-9ff2-032ee230e0f2" name="Default Changelist" comment="Updated README.md and reflected build.gradle to j9 version.">
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/TheAlteningAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/TheAlteningAuthentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/AlteningServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/AlteningServiceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/ServiceSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/ServiceSwitcher.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,36 +52,18 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="TheAltening4j" type="f1a62948:ProjectNode" />
+                <item name="authlib" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="TheAltening4j" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="authlib" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="TheAltening4j" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="TheAltening4j" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="release" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="TheAltening4j" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="upload" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="TheAltening4j" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
+                <item name="authlib" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -87,6 +80,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="3.0-j9" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectConfigurationFiles">
@@ -112,11 +110,38 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565471031812" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thealtening.auth.Test" />
+      <module name="authlib.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thealtening.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -147,7 +172,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -167,5 +192,39 @@
     <MESSAGE value="Updated README.md&#10;Added Copyright" />
     <MESSAGE value="'build.gradle' now let's me build" />
     <option name="LAST_COMMIT_MESSAGE" value="'build.gradle' now let's me build" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1876" height="348" key="GridCell.Tab.0.bottom" timestamp="1593369965648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
+    <state width="1876" height="348" key="GridCell.Tab.0.center" timestamp="1593369965648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
+    <state width="1876" height="348" key="GridCell.Tab.0.left" timestamp="1593369965648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
+    <state width="1876" height="348" key="GridCell.Tab.0.right" timestamp="1593369965648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
+    <state width="1876" height="348" key="GridCell.Tab.1.bottom" timestamp="1593369965226">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
+    <state width="1876" height="348" key="GridCell.Tab.1.center" timestamp="1593369965226">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
+    <state width="1876" height="348" key="GridCell.Tab.1.left" timestamp="1593369965226">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
+    <state width="1876" height="348" key="GridCell.Tab.1.right" timestamp="1593369965226">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
   </component>
 </project>
