@@ -9,7 +9,7 @@
 
 TheAltening Auth API made by [Vladymyr](https://github.com/Vladymyr) now branded under the official repo
 ## IMPORTANT
-If you are running Minecraft 1.16 and above, use `x.x.x-1.16`. Java 10 and above is not currently supported.
+If you are running Minecraft 1.16 and above, use `x.x.x-1.16`. Java 9 and above is not currently supported.
 
 Use the version `x.x.x-j9` if you are running Java 10 and above, otherwise just stick to `x.x.x` version.
 
@@ -45,8 +45,8 @@ dependencies {
 ```java
 import com.thealtening.auth.TheAlteningAuthentication
 
-TheAlteningAuthentication mojang = TheAlteningAuthentication.mojang();
-TheAlteningAuthentication theAltening = TheAlteningAuthentication.theAltening();
+TheAlteningAuthentication mojang = TheAlteningAuthentication.mojang((environment) -> /*1.16 and above has a sessionService field in Minecraft class, recommended to switch*/);
+TheAlteningAuthentication theAltening = TheAlteningAuthentication.theAltening(/*1.16 and above has a sessionService field in Minecraft class, recommended to switch*/);
 ```
 2. I case that you want to switch to another service, use the ``updateService`` method from your auth instance.
 

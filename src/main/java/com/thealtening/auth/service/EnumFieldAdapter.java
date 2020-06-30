@@ -17,8 +17,11 @@
 
 package com.thealtening.auth.service;
 
+import com.mojang.authlib.yggdrasil.YggdrasilEnvironment;
+
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -28,26 +31,29 @@ import java.util.Optional;
  * @author Vladymyr
  * @since 10/08/2019
  */
-public final class FieldAdapter {
+public final class EnumFieldAdapter {
 
     private final HashMap<String, MethodHandle> fields = new HashMap<>();
     private static final MethodHandles.Lookup LOOKUP;
     private static Field MODIFIERS;
 
-    public FieldAdapter(String parent) {
+    public EnumFieldAdapter(String parent, String enumPath) {
         try {
             Class cls = Class.forName(parent);
-            Field modifiers = FieldAdapter.MODIFIERS;
+            Field modifiers = EnumFieldAdapter.MODIFIERS;
             for (Field field : cls.getDeclaredFields()) {
-                field.setAccessible(true);
-                int accessFlags = field.getModifiers();
-                if (Modifier.isFinal(accessFlags)) {
-                    modifiers.setInt(field, accessFlags & ~Modifier.FINAL);
+                if(field.getName().equals(enumPath)) {
+                    Object accessedEnum = field.get(null);
+                    for (Field innerEnumField : accessedEnum.getClass().getDeclaredFields()) {
+                        innerEnumField.setAccessible(true);
+                        int accessFlags = innerEnumField.getModifiers();
+                        if (Modifier.isFinal(accessFlags)) {
+                            modifiers.setInt(innerEnumField, accessFlags & ~Modifier.FINAL);
+                        }
+                        MethodHandle handler = LOOKUP.unreflectSetter(innerEnumField);
+                        fields.put(innerEnumField.getName(), handler);
+                    }
                 }
-
-                MethodHandle handler = LOOKUP.unreflectSetter(field);
-                handler = handler.asType(handler.type().generic().changeReturnType(void.class));
-                fields.put(field.getName(), handler);
             }
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("Couldn't load/find the specified class");
@@ -56,10 +62,10 @@ public final class FieldAdapter {
         }
     }
 
-    public void updateFieldIfPresent(String name, Object newValue) {
+    public void updateFieldIfPresent(String name, Object instance, Object newValue) {
         Optional.ofNullable(fields.get(name)).ifPresent(setter -> {
             try {
-                setter.invokeExact(newValue);
+                setter.invoke(instance, newValue);
             } catch (Throwable e) {
                 e.printStackTrace();
             }

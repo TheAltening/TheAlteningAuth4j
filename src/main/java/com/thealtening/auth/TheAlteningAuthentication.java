@@ -17,6 +17,7 @@
 
 package com.thealtening.auth;
 
+import com.mojang.authlib.yggdrasil.YggdrasilEnvironment;
 import com.thealtening.auth.service.AlteningServiceType;
 import com.thealtening.auth.service.ServiceSwitcher;
 
@@ -28,6 +29,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.function.Consumer;
 
 /**
  * @author Vladymyr
@@ -37,10 +39,12 @@ public final class TheAlteningAuthentication {
 
     private final ServiceSwitcher serviceSwitcher = new ServiceSwitcher();
     private final SSLController sslController = new SSLController();
+    private final Consumer<YggdrasilEnvironment> afterSwitching;
     private static TheAlteningAuthentication instance;
     private AlteningServiceType service;
 
-    private TheAlteningAuthentication(AlteningServiceType service) {
+    private TheAlteningAuthentication(AlteningServiceType service, Consumer<YggdrasilEnvironment> afterSwitching) {
+        this.afterSwitching = afterSwitching;
         this.updateService(service);
     }
 
@@ -59,24 +63,24 @@ public final class TheAlteningAuthentication {
                 break;
         }
 
-        this.service = this.serviceSwitcher.switchToService(service, this.service);
+        this.service = this.serviceSwitcher.switchToService(service, this.service, afterSwitching);
     }
 
     public AlteningServiceType getService() {
         return service;
     }
 
-    public static TheAlteningAuthentication mojang() {
-        return withService(AlteningServiceType.MOJANG);
+    public static TheAlteningAuthentication mojang(final Consumer<YggdrasilEnvironment> afterSwitching) {
+        return withService(AlteningServiceType.MOJANG, afterSwitching);
     }
 
-    public static TheAlteningAuthentication theAltening() {
-        return withService(AlteningServiceType.THEALTENING);
+    public static TheAlteningAuthentication theAltening(final Consumer<YggdrasilEnvironment> afterSwitching) {
+        return withService(AlteningServiceType.THEALTENING, afterSwitching);
     }
 
-    private static TheAlteningAuthentication withService(AlteningServiceType service) {
+    private static TheAlteningAuthentication withService(AlteningServiceType service, Consumer<YggdrasilEnvironment> afterSwitching) {
         if (instance == null) {
-            instance = new TheAlteningAuthentication(service);
+            instance = new TheAlteningAuthentication(service, afterSwitching);
         } else if (instance.getService() != service) {
             instance.updateService(service);
         }

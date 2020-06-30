@@ -22,13 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d46be2a-e546-4d52-9ff2-032ee230e0f2" name="Default Changelist" comment="Updated README.md and reflected build.gradle to j9 version.">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9d46be2a-e546-4d52-9ff2-032ee230e0f2" name="Default Changelist" comment="Added support for 1.16 (Authlib 1.6.25)&#10;Changed updateService method so it doesn't update to a new service whenever an exception is thrown.">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/TheAlteningAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/TheAlteningAuthentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/AlteningServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/AlteningServiceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/FieldAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/EnumFieldAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/ServiceSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thealtening/auth/service/ServiceSwitcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +52,17 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="authlib" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="authlib" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="authlib" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="release" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -105,6 +115,9 @@
     <option name="height" value="735" />
   </component>
   <component name="ProjectId" id="1PchSkcVv3b7sRuDqhbJcceCPOp" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -121,7 +134,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.thealtening.auth.Test" />
       <module name="authlib.main" />
@@ -135,8 +148,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TheAlteningAuth4j [closeAndReleaseRepository]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="closeAndReleaseRepository" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TheAlteningAuth4j [closeAndReleaseRepository]" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -153,6 +186,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565468235247</updated>
       <workItem from="1566179299631" duration="1287000" />
+      <workItem from="1593523284925" duration="3098000" />
     </task>
     <task id="LOCAL-00001" summary="Updated README.md&#10;Added Copyright">
       <created>1566180010192</created>
@@ -168,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566180238362</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added support for 1.16 (Authlib 1.6.25)&#10;Changed updateService method so it doesn't update to a new service whenever an exception is thrown.">
+      <created>1593370536643</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593370536645</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,40 +232,53 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Updated README.md&#10;Added Copyright" />
     <MESSAGE value="'build.gradle' now let's me build" />
-    <option name="LAST_COMMIT_MESSAGE" value="'build.gradle' now let's me build" />
+    <MESSAGE value="Added support for 1.16 (Authlib 1.6.25)&#10;Changed updateService method so it doesn't update to a new service whenever an exception is thrown." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added support for 1.16 (Authlib 1.6.25)&#10;Changed updateService method so it doesn't update to a new service whenever an exception is thrown." />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1876" height="348" key="GridCell.Tab.0.bottom" timestamp="1593369965648">
+    <state x="437" y="326" width="490" height="593" key="#xdebugger.evaluate" timestamp="1593525327790">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
-    <state width="1876" height="348" key="GridCell.Tab.0.center" timestamp="1593369965648">
+    <state x="437" y="326" width="490" height="593" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1593525327790" />
+    <state width="1876" height="239" key="GridCell.Tab.0.bottom" timestamp="1593526148098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
-    <state width="1876" height="348" key="GridCell.Tab.0.left" timestamp="1593369965648">
+    <state width="1876" height="239" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593526148098" />
+    <state width="1876" height="239" key="GridCell.Tab.0.center" timestamp="1593526148097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
-    <state width="1876" height="348" key="GridCell.Tab.0.right" timestamp="1593369965648">
+    <state width="1876" height="239" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593526148097" />
+    <state width="1876" height="239" key="GridCell.Tab.0.left" timestamp="1593526148097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965648" />
-    <state width="1876" height="348" key="GridCell.Tab.1.bottom" timestamp="1593369965226">
+    <state width="1876" height="239" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593526148097" />
+    <state width="1876" height="239" key="GridCell.Tab.0.right" timestamp="1593526148098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
-    <state width="1876" height="348" key="GridCell.Tab.1.center" timestamp="1593369965226">
+    <state width="1876" height="239" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593526148098" />
+    <state width="1876" height="239" key="GridCell.Tab.1.bottom" timestamp="1593526147601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
-    <state width="1876" height="348" key="GridCell.Tab.1.left" timestamp="1593369965226">
+    <state width="1876" height="239" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593526147601" />
+    <state width="1876" height="239" key="GridCell.Tab.1.center" timestamp="1593526147600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
-    <state width="1876" height="348" key="GridCell.Tab.1.right" timestamp="1593369965226">
+    <state width="1876" height="239" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593526147600" />
+    <state width="1876" height="239" key="GridCell.Tab.1.left" timestamp="1593526147600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593369965226" />
+    <state width="1876" height="239" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593526147600" />
+    <state width="1876" height="239" key="GridCell.Tab.1.right" timestamp="1593526147601">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="239" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593526147601" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1593370539648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593370539648" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1593371515094">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593371515094" />
   </component>
 </project>

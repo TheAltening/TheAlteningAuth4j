@@ -17,14 +17,11 @@
 
 package com.thealtening.auth.service;
 
-import com.mojang.authlib.Environment;
+import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import com.mojang.authlib.yggdrasil.YggdrasilEnvironment;
-import sun.reflect.ConstructorAccessor;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.net.URL;
+import java.net.Proxy;
+import java.util.function.Consumer;
 
 /**
  * @author Vladymyr
@@ -32,37 +29,22 @@ import java.net.URL;
  */
 public final class ServiceSwitcher {
 
-    private final String YGGDRASIL_ENVIRONMENT = "com.mojang.authlib.yggdrasil.YggdrasilEnvironment";
-
-
-    private final FieldAdapter yggdrasilEnvironment = new FieldAdapter(YGGDRASIL_ENVIRONMENT);
+    private final EnumFieldAdapter yggdrasilEnvironmentFieldAdapter = new EnumFieldAdapter(YggdrasilEnvironment.class.getName(), "PROD");
 
     public ServiceSwitcher() {
     }
 
-    public AlteningServiceType switchToService(AlteningServiceType service, AlteningServiceType previousService) {
+    public AlteningServiceType switchToService(AlteningServiceType service, AlteningServiceType previousService, Consumer<YggdrasilEnvironment> afterSwitching) {
         try {
-            this.yggdrasilEnvironment.updateFieldIfPresent("PROD", newYggdrasilEnvironment(service.getAuthServer(), service.getAccountsHost(), service.getSessionServer()));
+            YggdrasilEnvironment environment = YggdrasilEnvironment.PROD;
+            yggdrasilEnvironmentFieldAdapter.updateFieldIfPresent("authHost", environment, service.getAuthServer());
+            yggdrasilEnvironmentFieldAdapter.updateFieldIfPresent("accountsHost", environment, service.getAccountsHost());
+            yggdrasilEnvironmentFieldAdapter.updateFieldIfPresent("sessionHost", environment, service.getSessionServer());
+           afterSwitching.accept(environment);
         } catch (Exception exception) {
             exception.printStackTrace();
             return previousService;
         }
-
         return service;
-    }
-    private YggdrasilEnvironment newYggdrasilEnvironment(final String authHost, final String accountsHost, final String sessionHost) throws Exception{
-        System.out.println();
-        Constructor<?>[] declaredConstructors = YggdrasilEnvironment.class.getDeclaredConstructors();
-        Constructor<YggdrasilEnvironment> declaredConstructor = (Constructor<YggdrasilEnvironment>) declaredConstructors[0];
-        declaredConstructor.setAccessible(true);
-        Field constructorAccessorField = Constructor.class.getDeclaredField("constructorAccessor");
-        constructorAccessorField.setAccessible(true);
-        ConstructorAccessor constructorAccessor = (ConstructorAccessor) constructorAccessorField.get(declaredConstructor);
-        if (constructorAccessor == null) {
-            Method acquireConstructorAccessorMethod = Constructor.class.getDeclaredMethod("acquireConstructorAccessor");
-            acquireConstructorAccessorMethod.setAccessible(true);
-            constructorAccessor = (ConstructorAccessor) acquireConstructorAccessorMethod.invoke(declaredConstructor);
-        }
-        return (YggdrasilEnvironment) constructorAccessor.newInstance(new Object[] {"PROD", 0, authHost, accountsHost, sessionHost});
     }
 }
